@@ -1,0 +1,8 @@
+{
+    "git.ignoreLimitWarning": true,
+    "typescript.preferences.importModuleSpecifier": "relative",
+    "javascript.preferences.importModuleSpecifier": "relative",
+    "search.followSymlinks": false,
+    "debug.node.autoAttach": "off",
+    "typescript.tsdk": "node_modules\\typescript\\lib"
+}
