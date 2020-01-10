@@ -2,8 +2,8 @@ import { Controller, Get, Post, Body, Param, UseGuards } from '@nestjs/common';
 import { CatsService } from './cats.service';
 import { Cat } from './cat.interface';
 import { Transaction, TransactionManager, EntityManager } from 'typeorm';
-import { RolesGuard } from '../auth/auth.guard';
-import { Roles } from '../auth/roles.decorator';
+import { RolesGuard } from '../auth/guard/auth.guard';
+import { Roles } from '../auth/guard/roles.decorator';
 
 @Controller('cats')
 @UseGuards(RolesGuard)
