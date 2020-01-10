@@ -1,19 +1,22 @@
-import { Controller, Get, Post, Body, Param } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, UseGuards } from '@nestjs/common';
 import { CatsService } from './cats.service';
 import { Cat } from './cat.interface';
 import { Transaction, TransactionManager, EntityManager } from 'typeorm';
-import { PhotoEntity } from '../../entity/photo/photo.entity';
+import { RolesGuard } from '../auth/auth.guard';
+import { Roles } from '../auth/roles.decorator';
 
 @Controller('cats')
+@UseGuards(RolesGuard)
 export class CatsController {
   constructor(private readonly catsService: CatsService) {}
 
-  @Post('test')
+  @Post('test') 
+  @Roles('admin')
   @Transaction()
   async create(
     @Body() param: { id: number },
     @TransactionManager() manager: EntityManager,
-  ): Promise<PhotoEntity> {
+  ): Promise<any> {
     return this.catsService.create(manager, param.id);
   }
 
