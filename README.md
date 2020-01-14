@@ -8,3 +8,4 @@ nest起步学习案例
 4、socket.io 服务端简单的配置
 5、docker的初步配置
 6、添加RolesGuard角色认证
+7、添加JWT

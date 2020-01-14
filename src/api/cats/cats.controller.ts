@@ -4,13 +4,14 @@ import { Cat } from './cat.interface';
 import { Transaction, TransactionManager, EntityManager } from 'typeorm';
 import { RolesGuard } from '../auth/guard/auth.guard';
 import { Roles } from '../auth/guard/roles.decorator';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('cats')
-@UseGuards(RolesGuard)
+@UseGuards(AuthGuard(), RolesGuard)
 export class CatsController {
   constructor(private readonly catsService: CatsService) {}
 
-  @Post('test') 
+  @Post('test')
   @Roles('admin')
   @Transaction()
   async create(
