@@ -1,5 +1,5 @@
-# nest-websocket
-nest起步学习案例
+# nest.js-example
+nest.js起步学习案例
 这是个简单的示例，以后会逐步完善。
 # 功能： 
 1、简单的操作数据库
